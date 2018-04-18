@@ -5,7 +5,8 @@ export default class Navigation extends Component {
     return (
       <nav className="navbar">
         <a href="/" className="navbar-brand">Chatty</a>
-        <p className="navbar-usersOnline">{this.props.onlineUsers} users online</p>
+        { (this.props.onlineUsers > 1) && <p className="navbar-usersOnline">{this.props.onlineUsers} users online</p> }
+        { (this.props.onlineUsers === 1) && <p className="navbar-usersOnline">{this.props.onlineUsers} user online</p>}
       </nav>
     );
   }

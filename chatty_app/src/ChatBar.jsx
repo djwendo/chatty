@@ -13,13 +13,16 @@ export default class ChatBar extends Component {
   }
 
   enterUsername(e) {
-    this.setState({
-      username: e.target.value
-    });
-    if (e.keyCode === 13) {
-      this.props.currentUser(e.target.value);
+    if (e.target.value === '') {
+      this.setState({
+        username: 'Anonymous'
+      })
+    } else {
+      this.setState({
+        username: e.target.value
+      });
     }
-
+    this.props.currentUser(e.target.value);
   }
 
   onSubmit(e) {
@@ -36,8 +39,7 @@ export default class ChatBar extends Component {
     return (
       <footer className="chatbar">
         <input className="chatbar-username"
-          onChange={this.enterUsername}
-          onKeyUp={this.enterUsername}
+          onBlur={this.enterUsername}
           name="yourName"
           type="text"
           placeholder="Your Name (Optional)"/>

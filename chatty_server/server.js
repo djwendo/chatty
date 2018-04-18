@@ -22,9 +22,10 @@ const wss = new SocketServer({ server });
 // the ws parameter in the callback.
 wss.on('connection', (ws) => {
   console.log('Client connected');
-  const onlineUsers = wss.clients.size;
-  const type = 'onlineUsers';
-  const onlineMessage = {onlineUsers, type};
+  console.log('client', wss.clients.value);
+  let onlineUsers = wss.clients.size;
+  let type = 'onlineUsers';
+  let onlineMessage = {onlineUsers, type};
   wss.clients.forEach(function each(client) {
     if (client.readyState === WebSocket.OPEN) {
       client.send(JSON.stringify(onlineMessage));
@@ -53,6 +54,14 @@ wss.on('connection', (ws) => {
   ws.on('close', () => {
     console.log('Client disconnected');
     console.log(wss.clients.size);
+    onlineUsers = wss.clients.size;
+    type = 'onlineUsers';
+    onlineMessage = {onlineUsers, type};
+    wss.clients.forEach(function each(client) {
+    if (client.readyState === WebSocket.OPEN) {
+      client.send(JSON.stringify(onlineMessage));
+    }
+  });
   });
 });
 
