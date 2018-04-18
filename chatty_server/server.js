@@ -25,10 +25,14 @@ wss.on('connection', (ws) => {
 
   ws.on('message', (msg) => {
     const id = uuidv4();
-    const msgObject = JSON.parse(msg);
+    let msgObject = JSON.parse(msg);
+    if (msgObject.type === 'postMessage') {
+      msgObject.type = 'incomingMessage';
+    } else if (msgObject.type === 'postNotification') {
+      msgObject.type = 'incomingNotification';
+    }
     const msgToSendToUsers = {...msgObject, id};
     console.log('msg to send', msgToSendToUsers);
-    console.log('User', msgObject.username, 'said', msgObject.content);
 
     wss.clients.forEach(function each(client) {
       if (client.readyState === WebSocket.OPEN) {
