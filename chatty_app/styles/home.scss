@@ -36,6 +36,10 @@ body {
     flex: 2;
   }
 
+  .image {
+    max-width: 60%;
+    padding: 1em 0em;
+  }
   .message {
     display: flex;
     padding: 5px;

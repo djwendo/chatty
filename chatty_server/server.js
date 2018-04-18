@@ -30,7 +30,7 @@ wss.broadcast = function broadcast(data) {
 };
 
 const assignUserColor = () => {
-  const colors = ['#8E44AD', '#48C9B0', '#F39C12', '#3498DB'];
+  const colors = ['#8E44AD', '#48C9B0', '#F39C12', '#3498DB', '#e81f3f', '#11aac4', '#de94e4'];
   const randomNumber = Math.floor(Math.random() * (colors.length));
   return colors[randomNumber];
 }

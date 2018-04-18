@@ -49,7 +49,7 @@ class App extends Component {
 
     setTimeout(() => {
       console.log("Simulating incoming message");
-      const newMessage = {id: 3, username: "Michelle", content: "Hello there!", type: 'incomingMessage'};
+      const newMessage = {id: 3, username: "Yoda", color: "#80BA27", content: "Using Chatty you are, young padawan", type: 'incomingMessage'};
       const messages = this.state.messages.concat(newMessage);
       this.setState({messages: messages})
     }, 3000);
