@@ -20,9 +20,11 @@ class MessageList extends Component {
     });
 
     return (
-      <div id="message-list">
-        {individualMessage}
-      </div>
+      <main className="messages">
+        <div id="message-list">
+          {individualMessage}
+        </div>
+      </main>
     );
   }
 }

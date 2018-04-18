@@ -1,13 +1,15 @@
 import React, {Component} from 'react';
 import ChatBar from './ChatBar.jsx';
 import MessageList from './MessageList.jsx';
+import Navigation from './Navigation.jsx';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       currentUser: {name: 'Anonymous'}, // optional. if currentUser is not defined, it means the user is Anonymous
-      messages: []
+      messages: [],
+      onlineUsers: ''
     };
     this.addMessage = this.addMessage.bind(this);
     this.newUsername = this.newUsername.bind(this);
@@ -34,6 +36,9 @@ class App extends Component {
         case 'incomingNotification':
           const newNotifications = [...this.state.messages, {id: message.id, content: message.content, type: message.type}];
           this.setState({ messages: newNotifications});
+          break;
+        case 'onlineUsers':
+          this.setState({ onlineUsers: message.onlineUsers});
           break;
         default:
           throw new Error("Unknown event type " + message.type);
@@ -70,6 +75,7 @@ class App extends Component {
     console.log("Rendering <App/>");
     return (
       <div>
+      <Navigation onlineUsers={this.state.onlineUsers}/>
       <MessageList messages={this.state.messages}/>
       <ChatBar currentUser={this.newUsername} addMessage={this.addMessage} username={this.state.currentUser.name}/>
       </div>
