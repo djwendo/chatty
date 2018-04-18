@@ -9,7 +9,7 @@ class App extends Component {
     this.state = {
       currentUser: {name: 'Anonymous'},
       messages: [],
-      onlineUsers: ''
+      onlineUsers: '',
     };
     this.addMessage = this.addMessage.bind(this);
     this.newUsername = this.newUsername.bind(this);
@@ -30,7 +30,7 @@ class App extends Component {
       switch(message.type) {
         case 'incomingMessage':
           const currentMessages = this.state.messages;
-          const newMessages = [...currentMessages, {id: message.id, username: message.username , content: message.content, type: message.type}];
+          const newMessages = [...currentMessages, {id: message.id, username: message.username, color: message.messageColor, content: message.content, type: message.type}];
           this.setState({ messages: newMessages});
           break;
         case 'incomingNotification':
@@ -38,7 +38,9 @@ class App extends Component {
           this.setState({ messages: newNotifications});
           break;
         case 'onlineUsers':
-          this.setState({ onlineUsers: message.onlineUsers});
+          this.setState({
+            onlineUsers: message.onlineUsers,
+          });
           break;
         default:
           throw new Error("Unknown event type " + message.type);
@@ -54,11 +56,9 @@ class App extends Component {
   }
 
   newUsername(user) {
-    console.log('I am currentUser', user);
     if (user === '') {
       user = 'Anonymous';
     }
-
     if (user !== this.state.currentUser.name) {
       this.socket.send(JSON.stringify({type: 'postNotification', content: `user ${this.state.currentUser.name} has changed their name to ${user}`}));
     }
@@ -66,13 +66,13 @@ class App extends Component {
   }
 
   addMessage(user, message) {
-      let msg = {
-        type: "postMessage",
-        content: message,
-        username: user
-      };
-      console.log('message from client:', msg);
-      this.socket.send(JSON.stringify(msg));
+    let msg = {
+      type: "postMessage",
+      content: message,
+      username: user
+    };
+
+    this.socket.send(JSON.stringify(msg));
   }
 
   render() {
