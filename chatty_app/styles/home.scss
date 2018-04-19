@@ -4,10 +4,13 @@ body {
     font-family: 'Open Sans', sans-serif;
     font-size: 14px;
     margin: 70px 0;
+    font-weight: 500;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1px;
   }
 
   .chatbar {
-    background: #3e517a;
+    background: #202a3e;
     border-top: 4px solid #70cad1;
     bottom: 0;
     display: flex;
@@ -27,6 +30,7 @@ body {
     padding: 0 9px;
     font-weight: 400;
     font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1px;
   }
 
   .chatbar-message {
@@ -69,11 +73,12 @@ body {
 
   .message-username {
     flex: 2;
-    font-weight: 700;
+    font-weight: 900;
+    font-size: 1.25em;
   }
 
   .navbar {
-    background: #3e517a;
+    background: #202a3e;
     border-bottom: 4px solid #70cad1;
     height: 65px;
     left: 0;
@@ -101,6 +106,7 @@ body {
     font-weight: 400;
     font-size: 1.5em;
     font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1px;
     padding: 0.4em 1em 0em 1em;
     text-decoration: none;
   }
