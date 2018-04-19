@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Message from './Message.jsx';
 import Notification from './Notification.jsx';
 
-class MessageList extends Component {
+export default class MessageList extends Component {
 
   render() {
     const individualMessage = this.props.messages.map((message) => {
@@ -13,9 +13,7 @@ class MessageList extends Component {
           content={message.content}
           color={message.color}/>);
       } else if (message.type === 'incomingNotification') {
-        return (<Notification
-          key={message.id}
-          content={message.content}/>);
+        return (<Notification key={message.id} content={message.content}/>);
       }
     });
 
@@ -28,4 +26,3 @@ class MessageList extends Component {
     );
   }
 }
-export default MessageList;

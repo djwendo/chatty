@@ -24,23 +24,19 @@ export default class Message extends Component {
       return pieces;
     }
 
-  const piecesOfText = splitRegex(messageContent, findImgUrl);
-  console.log('here are pieces', piecesOfText);
-  const renderedPieces = piecesOfText.map((piece, i) => {
-    if(piece.match){
-      return <span><img className="image" key={'piece_' + i} src={piece.text}/><br/></span>;
-    }
-
-    return <span key={'piece_' + i}>{piece.text}<br/></span>;
-
-  });
+    const piecesOfText = splitRegex(messageContent, findImgUrl);
+    const renderedPieces = piecesOfText.map((piece, i) => {
+      if(piece.match){
+        return <span><img className="image" key={'piece_' + i} src={piece.text}/><br/></span>;
+      }
+      return <span key={'piece_' + i}>{piece.text}<br/></span>;
+    });
 
     return (
-        <div className="message">
-          <span className="message-username" style={{color: color}}>{this.props.username}</span>
-          <span className="message-content">{renderedPieces}</span>
-        </div>
+      <div className="message">
+        <span className="message-username" style={{color: color}}>{this.props.username}</span>
+        <span className="message-content">{renderedPieces}</span>
+      </div>
     );
   }
 }
-

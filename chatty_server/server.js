@@ -1,5 +1,4 @@
 // server.js
-
 const express = require('express');
 const WebSocket = require('ws');
 const SocketServer = WebSocket.Server;
@@ -57,12 +56,10 @@ wss.on('connection', (ws) => {
   usersOnlineCount();
   ws.id = getID();
   usersOnline[ws.id] = assignUserColor();
-  console.log(usersOnline);
   console.log(`${wss.clients.size} users online`)
 
   ws.on('message', (msg) => {
     messageColor = usersOnline[ws.id];
-    console.log('each user color:', messageColor);
     const id = uuidv4();
     let msgObject = JSON.parse(msg);
     if (msgObject.type === 'postMessage') {
@@ -79,6 +76,7 @@ wss.on('connection', (ws) => {
     console.log('Client disconnected');
     console.log(`${wss.clients.size} users online`)
     usersOnlineCount();
+    delete usersOnline[ws.id];
   });
 });
 

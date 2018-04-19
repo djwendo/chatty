@@ -22,25 +22,21 @@ class App extends Component {
     console.log("Connected to server");
 
     this.socket.onmessage = (event) => {
-      console.log('This event', event);
 
       const message = JSON.parse(event.data);
-      console.log('message info:', message);
 
       switch(message.type) {
         case 'incomingMessage':
           const currentMessages = this.state.messages;
-          const newMessages = [...currentMessages, {id: message.id, username: message.username, color: message.messageColor, content: message.content, type: message.type}];
-          this.setState({ messages: newMessages});
+          const newMessages = [...currentMessages, { id: message.id, username: message.username, color: message.messageColor, content: message.content, type: message.type }];
+          this.setState({ messages: newMessages });
           break;
         case 'incomingNotification':
-          const newNotifications = [...this.state.messages, {id: message.id, content: message.content, type: message.type}];
-          this.setState({ messages: newNotifications});
+          const newNotifications = [...this.state.messages, { id: message.id, content: message.content, type: message.type }];
+          this.setState({ messages: newNotifications });
           break;
         case 'onlineUsers':
-          this.setState({
-            onlineUsers: message.onlineUsers,
-          });
+          this.setState({ onlineUsers: message.onlineUsers });
           break;
         default:
           throw new Error("Unknown event type " + message.type);
@@ -48,8 +44,7 @@ class App extends Component {
     }
 
     setTimeout(() => {
-      console.log("Simulating incoming message");
-      const newMessage = {id: 3, username: "Yoda", color: "#80BA27", content: "Using Chatty you are, young padawan", type: 'incomingMessage'};
+      const newMessage = {id: 1977, username: "Yoda", color: "#80BA27", content: "Using Chatty you are, young padawan", type: 'incomingMessage'};
       const messages = this.state.messages.concat(newMessage);
       this.setState({messages: messages})
     }, 3000);
@@ -69,7 +64,7 @@ class App extends Component {
     let msg = {
       type: "postMessage",
       content: message,
-      username: user
+      username: user,
     };
 
     this.socket.send(JSON.stringify(msg));
