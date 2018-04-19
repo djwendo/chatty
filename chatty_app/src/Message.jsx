@@ -1,30 +1,12 @@
 import React, {Component} from 'react';
+import splitRegex from './splitRegex';
 
 export default class Message extends Component {
 
   render() {
     let color = this.props.color;
-
-    // Logic to find and render image urls in message text
     let messageContent = this.props.content;
     let findImgUrl = /(https?)\S+(png|jpg|gif|jpeg)/i;
-
-    function splitRegex(text, re){
-      let execResult = re.exec(text);
-      let currentText = text;
-      const pieces = [];
-      while(execResult){
-        const foundThing = execResult[0];
-        const index = execResult.index;
-        const beforeIndex = currentText.substr(0, index);
-        currentText = currentText.substr(index + foundThing.length);
-        pieces.push({match:false, text: beforeIndex});
-        pieces.push({match:true, text: foundThing});
-        execResult = re.exec(currentText);
-      }
-      pieces.push({match: false, text: currentText});
-      return pieces;
-    }
 
     const piecesOfText = splitRegex(messageContent, findImgUrl);
     const renderedPieces = piecesOfText.map((piece, i) => {

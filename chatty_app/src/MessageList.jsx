@@ -13,7 +13,7 @@ export default class MessageList extends Component {
           content={message.content}
           color={message.color}/>);
       } else if (message.type === 'incomingNotification') {
-        return (<Notification key={message.id} content={message.content}/>);
+        return <Notification key={message.id} content={message.content}/>;
       }
     });
 

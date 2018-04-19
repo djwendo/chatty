@@ -4,7 +4,7 @@ A single-page chat application, Chatty allows multiple users to connect and shar
 
 ## Final Product
 
-!["Landing Page"](https://github.com/djwendo/chatty/blob/master/images/landingpage.png?raw=true)
+!["Landing Page"](https://github.com/djwendo/chatty/blob/master/images/landing_page.png?raw=true)
 !["Multiple Users Connected"](https://github.com/djwendo/chatty/blob/master/images/multiple_users.png?raw=true)
 !["Share Messages and Photos"](https://github.com/djwendo/chatty/blob/master/images/add_photo.png?raw=true)
 !["Username Change"](https://github.com/djwendo/chatty/blob/master/images/username_change.png?raw=true)
