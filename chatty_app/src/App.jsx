@@ -22,15 +22,15 @@ class App extends Component {
     this.socket.onmessage = (event) => {
 
       const message = JSON.parse(event.data);
+      const currentMessages = this.state.messages;
 
       switch(message.type) {
         case 'incomingMessage':
-          const currentMessages = this.state.messages;
           const newMessages = [...currentMessages, { id: message.id, username: message.username, color: message.messageColor, content: message.content, type: message.type }];
           this.setState({ messages: newMessages });
           break;
         case 'incomingNotification':
-          const newNotifications = [...this.state.messages, { id: message.id, content: message.content, type: message.type }];
+          const newNotifications = [...currentMessages, { id: message.id, content: message.content, type: message.type }];
           this.setState({ messages: newNotifications });
           break;
         case 'onlineUsers':
@@ -45,7 +45,7 @@ class App extends Component {
       const newMessage = {id: 1977, username: "Yoda", color: "#80BA27", content: "In the Chatty Cantina you are, young padawan", type: 'incomingMessage'};
       const messages = this.state.messages.concat(newMessage);
       this.setState({messages: messages})
-    }, 3000);
+    }, 2000);
   }
 
   newUsername(user) {
@@ -64,7 +64,6 @@ class App extends Component {
       content: message,
       username: user,
     };
-
     this.socket.send(JSON.stringify(msg));
   }
 

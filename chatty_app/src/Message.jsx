@@ -4,6 +4,8 @@ export default class Message extends Component {
 
   render() {
     let color = this.props.color;
+
+    // Logic to identify image urls in messages
     let messageContent = this.props.content;
     let findImgUrl = /(https?)\S+(png|jpg|gif|jpeg)/i;
 
@@ -24,6 +26,8 @@ export default class Message extends Component {
       return pieces;
     }
 
+    // Function to return images or strings depending on the output of the
+    // splitRegex function above
     const piecesOfText = splitRegex(messageContent, findImgUrl);
     const renderedPieces = piecesOfText.map((piece, i) => {
       if(piece.match){

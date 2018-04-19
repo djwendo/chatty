@@ -1,17 +1,12 @@
 import React, {Component} from 'react';
 
-export default class Navigation extends Component {
-  render() {
-    return (
-      <nav className="navbar">
-        <a href="/" className="navbar-brand">CHATTY CANTINA</a>
-        { (this.props.onlineUsers > 1) && <p className="navbar-usersOnline">{this.props.onlineUsers} USERS ONLINE</p> }
-        { (this.props.onlineUsers === 1) && <p className="navbar-usersOnline">{this.props.onlineUsers} USER ONLINE</p> }
-      </nav>
-    );
-  }
-}
+const Navigation = ({ onlineUsers = 0}) => (
+  <nav className="navbar">
+    <a href="/" className="navbar-brand">CHATTY CANTINA</a>
+    <p className="navbar-usersOnline">{ `${onlineUsers} ${ onlineUsers === 1 ? 'user' : 'users'} online`} </p>
+  </nav>
+)
 
-
+export default Navigation;
 
 
