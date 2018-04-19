@@ -43,7 +43,7 @@ export default class ChatBar extends Component {
           onKeyUp={this.onSubmit}
           name="messageText"
           type="text"
-          placeholder="Type a message and hit ENTER"/>
+          placeholder="Type a message and hit ENTER. To post images, use links ending in jpg, png, or gif."/>
       </footer>
     );
   }

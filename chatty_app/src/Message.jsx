@@ -4,6 +4,8 @@ export default class Message extends Component {
 
   render() {
     let color = this.props.color;
+
+    // Logic to find and render image urls in message text
     let messageContent = this.props.content;
     let findImgUrl = /(https?)\S+(png|jpg|gif|jpeg)/i;
 
