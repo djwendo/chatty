@@ -8,8 +8,8 @@ body {
   }
 
   .chatbar {
-    background: tomato;
-    border-top: 1px solid black;
+    background: #3e517a;
+    border-top: 4px solid #70cad1;
     bottom: 0;
     display: flex;
     left: 0;
@@ -20,7 +20,7 @@ body {
 
   .chatbar-message,
   .chatbar-username {
-    border: 1px solid black;
+    border: 1px solid #eee;
     display: block;
     height: 40px;
     line-height: 40px;
@@ -39,6 +39,10 @@ body {
   .image {
     max-width: 60%;
     padding: 1em 0em;
+  }
+
+  #message-list {
+    padding: 2em;
   }
 
   .message {
@@ -68,30 +72,30 @@ body {
   }
 
   .navbar {
-    background: tomato;
-    border-bottom: 1px solid black;
+    background: #3e517a;
+    border-bottom: 4px solid #70cad1;
     height: 60px;
     left: 0;
-    padding: 0 10px;
+    padding: 0 20px;
     position: fixed;
     right: 0;
     top: 0;
   }
 
   .navbar-brand {
-    color: inherit;
+    color: white;
     display: block;
     float: left;
     font-weight: 700;
     font-size: 28px;
     height: 60px;
     line-height: 60px;
-    padding: 0 10px;
+    padding: 0 18px;
     text-decoration: none;
   }
 
   .navbar-usersOnline {
-    color: inherit;
+    color: white;
     display: block;
     float: right;
     font-weight: 500;
