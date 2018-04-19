@@ -8,6 +8,7 @@ export default class Message extends Component {
     let messageContent = this.props.content;
     let findImgUrl = /(https?)\S+(png|jpg|gif|jpeg)/i;
 
+    // splitRegex function separates images from message text
     const piecesOfText = splitRegex(messageContent, findImgUrl);
     const renderedPieces = piecesOfText.map((piece, i) => {
       if(piece.match){
