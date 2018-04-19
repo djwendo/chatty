@@ -14,13 +14,11 @@ A single-page chat application, Chatty allows multiple users to connect and shar
 1. Fork this repository, then clone your fork of this repository.
 1. Install dependencies using the `npm install` command.
 1. Using two separate terminal windows:
-  * Navigate to chatty/chatty_app/ and use the `npm start` command.
-  * Navigate to chatty/chatty_server/ and use the `npm start` command.
+  1. Navigate to chatty/chatty_app/ and use the `npm start` command.
+  1. Navigate to chatty/chatty_server/ and use the `npm start` command.
 1. Visit `http://localhost:3000`
 
 ## Dependencies
-
-### Dependencies
 
 - babel-core
 - babel-preset-es2015
