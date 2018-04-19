@@ -16,10 +16,8 @@ class App extends Component {
   }
 
   componentDidMount() {
-    console.log("componentDidMount <App />");
 
     this.socket = new WebSocket('ws://localhost:3001//');
-    console.log("Connected to server");
 
     this.socket.onmessage = (event) => {
 
@@ -44,7 +42,7 @@ class App extends Component {
     }
 
     setTimeout(() => {
-      const newMessage = {id: 1977, username: "Yoda", color: "#80BA27", content: "Using Chatty you are, young padawan", type: 'incomingMessage'};
+      const newMessage = {id: 1977, username: "Yoda", color: "#80BA27", content: "In the Chatty Cantina you are, young padawan", type: 'incomingMessage'};
       const messages = this.state.messages.concat(newMessage);
       this.setState({messages: messages})
     }, 3000);
@@ -71,7 +69,6 @@ class App extends Component {
   }
 
   render() {
-    console.log("Rendering <App/>");
     return (
       <div>
       <Navigation onlineUsers={this.state.onlineUsers}/>

@@ -5,7 +5,6 @@ export default class ChatBar extends Component {
     super(props);
       this.state = {
         username: this.props.username,
-        message: ''
       };
 
     this.onSubmit = this.onSubmit.bind(this);
@@ -30,9 +29,6 @@ export default class ChatBar extends Component {
       this.props.addMessage(this.state.username, e.target.value);
       e.target.value = '';
     }
-    this.setState({
-      message: e.target.value
-    });
   }
 
   render() {
