@@ -1,3 +1,4 @@
+// helper function to separate image URLs from text in messages
 function splitRegex(text, re){
   let execResult = re.exec(text);
   let currentText = text;
